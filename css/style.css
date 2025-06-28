@@ -1,0 +1,54 @@
+body{
+    background-color: #F7ECDE;
+}
+main{
+    font-family: "PT Sans Caption", sans-serif;
+
+}
+h1{
+    font-family: "Pacifico", cursive;
+    font-size: 50px;
+    width: fit-content;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        background-color: #FEC260;
+        height: 25%;
+        width:100% ;
+        bottom: 10px;
+        z-index: -1;
+        transition: 0.4s all;
+    }
+        &:hover::before{
+            height: 50%;
+        }
+}
+.b-body{
+    border-top: black 2px dotted;
+    border-bottom: black 2px dotted;
+    h2{
+        font-family: "Righteous", sans-serif;
+        font-size: 25px;
+        background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+        background-size: 100%;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .inputs{
+        font-weight: 600;
+        input:focus{
+            border-color: #d99c39;
+            outline: 0;
+            box-shadow: 0 0 0 4px #fec26055;
+        }
+    }  
+    .btn{
+        background-color: #d1512d;
+        color: #fff;
+        &:hover{
+            background-color: #bb4120;
+            color: #fff;
+        }
+    }
+}
