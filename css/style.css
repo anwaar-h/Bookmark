@@ -1,5 +1,11 @@
 body{
     background-color: #F7ECDE;
+    text-transform: capitalize;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 main{
     font-family: "PT Sans Caption", sans-serif;
@@ -51,4 +57,52 @@ h1{
             color: #fff;
         }
     }
+}
+.btnVisit{
+    background-color: #9eb23b;
+    color: #fff;
+    &:hover{
+        background-color: #8a9e23;
+        color: #fff;
+    }
+}
+.btnDelete{
+    background-color: #eb1d36;
+    color: #fff;
+    &:hover{
+        background-color: #d30820;
+        color: #fff;
+    }
+}
+.boxLayer{
+    background-color: #0007;
+
+    .checkBox{
+        width: 500px;
+        
+        h4{
+            font-family: "Bree Serif", serif;
+            font-size: 21px;
+        }
+        .boxList li i{
+            color: #bb4120;
+        }
+        .boxList li{
+            font-size: 18px;
+        }
+    }
+    .dots{
+    .dot-1{
+            color: #f15f5d;
+        }
+    .dot-2{
+        color: #febe2e;
+    }
+    .dot-3{
+        color: #4db748;
+    }
+    .dot-1 , .dot-2 , .dot-3{
+        font-size: 20px;
+    }
+    } 
 }
