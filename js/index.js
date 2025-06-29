@@ -15,6 +15,11 @@ function addWebsite(){
     websitesArray.push(website);
     localStorage.setItem("websites", JSON.stringify(websitesArray));
     displayWebsites();
+    clearInputs:();
+}
+function clearInputs() {
+    websiteNameInput.value = "";
+    websiteUrlInput.value = "";
 }
 function displayWebsites() {
     var trs ="";
@@ -24,10 +29,10 @@ function displayWebsites() {
         <td>${i}</td>
         <td>${websitesArray[i].name}</td>
         <td>
-        <button class="btn btnVisit">Visit</button>
+        <button class="btn btnVisit"><i class="fa-solid fa-eye pe-2"></i> Visit</button>
         </td>
         <td>
-        <button class="btn btnDelete" onclick="deleteWebsite(${i})" >Delete</button>
+        <button class="btn btnDelete" onclick="deleteWebsite(${i})" ><i class="fa-solid fa-trash-can"></i> Delete</button>
         </td>
         </tr>`
     }
