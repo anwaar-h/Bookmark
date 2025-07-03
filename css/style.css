@@ -75,10 +75,10 @@ h1{
     }
 }
 .boxLayer{
-    background-color: #0007;
 
     .checkBox{
         width: 500px;
+        text-align: left;
         
         h4{
             font-family: "Bree Serif", serif;
@@ -106,3 +106,16 @@ h1{
     }
     } 
 }
+
+div:where(.swal2-container).swal2-center>.swal2-popup,
+div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){
+    background-color: transparent !important;
+    font-family: "PT Sans Caption", sans-serif;
+}
+div:where(.swal2-container) button:where(.swal2-close){
+    position: absolute !important;
+    top: -50px !important ;
+    width: 40px !important ;
+    color: #545454 !important ;
+}
+
