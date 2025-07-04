@@ -74,8 +74,7 @@ h1{
         color: #fff;
     }
 }
-.boxLayer{
-
+.box{
     .checkBox{
         width: 500px;
         text-align: left;
@@ -106,7 +105,7 @@ h1{
     }
     } 
 }
-
+/* for error box */
 div:where(.swal2-container).swal2-center>.swal2-popup,
 div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){
     background-color: transparent !important;

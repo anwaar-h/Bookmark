@@ -2,12 +2,11 @@ var websiteNameInput = document.getElementById("websiteName");
 var websiteUrlInput = document.getElementById("websiteUrl");
 var submitButton = document.getElementById("submitBtn");
 
-var websiteNameRegex= /^[A-Za-z0-9 ]{2,29}$/;
-var websiteUrlregex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-
+var websiteNameRegex= /^[A-Za-z0-9 ]{3,29}$/;
+var websiteUrlregex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i;
 function inputsValidation(){
 
-  let isValid = true;
+  var isValid = true;
 
   if(!websiteNameRegex.test(websiteNameInput.value)){
     websiteNameInput.classList.add("is-invalid")
@@ -40,15 +39,22 @@ function addWebsite() {
             openErrorDialouge();
             return false; 
         }
-
+  var url = websiteUrlInput.value.trim();
+  if (!/^https?:\/\//i.test(url)) {
+    url = 'https://' + url;
+  }
   var website = {
-    name: websiteNameInput.value,
-    url: websiteUrlInput.value,
+    name: websiteNameInput.value.trim(),
+    url: url,
   };
   websitesArray.push(website);
   localStorage.setItem("websites", JSON.stringify(websitesArray));
   displayWebsites();
   clearInputs();
+  websiteNameInput.classList.remove("is-invalid")
+  websiteNameInput.classList.remove("is-valid")
+  websiteUrlInput.classList.remove("is-valid")
+  websiteUrlInput.classList.remove("is-invalid")
   return true;
 }
 function clearInputs() {
@@ -58,12 +64,16 @@ function clearInputs() {
 function displayWebsites() {
   var trs = "";
   for (var i = 0; i < websitesArray.length; i++) {
+    let url = websitesArray[i].url;
+    if (!url.includes('://')) {
+      url = 'https://' + url;
+    }
     trs += `
         <tr>
         <td>${i+1}</td>
         <td>${websitesArray[i].name}</td>
         <td>
-        <a href="${websitesArray[i].url}" target="_blank" class="btn btnVisit"><i class="fa-solid fa-eye pe-2"></i> Visit</a>
+        <a href="${url}" target="_blank" class="btn btnVisit"><i class="fa-solid fa-eye pe-2"></i> Visit</a>
         </td>
         <td>
         <button class="btn btnDelete" onclick="deleteWebsite(${i})" ><i class="fa-solid fa-trash-can"></i> Delete</button>
@@ -77,12 +87,11 @@ function deleteWebsite(websiteIndex) {
   localStorage.setItem("websites", JSON.stringify(websitesArray));
   displayWebsites();
 }
-// function visitWebsite(websiteIndex) {}
 
 
 function openErrorDialouge() {
   Swal.fire({
- html:`<div class="boxLayer position-absolute d-flex justify-content-center align-items-center w-100 h-100 ">
+ html:`<div class="box position-absolute d-flex justify-content-center align-items-center w-100 h-100 ">
             <div class="checkBox bg-white p-4 rounded-3 shadow">
                 <div class="sec1 d-flex flex-row space-between align-items-center justify-content-between mb-4">
                 <div class="dots d-flex gap-2">
