@@ -15,7 +15,7 @@ function addWebsite(){
     websitesArray.push(website);
     localStorage.setItem("websites", JSON.stringify(websitesArray));
     displayWebsites();
-    clearInputs:();
+    clearInputs();
 }
 function clearInputs() {
     websiteNameInput.value = "";
